@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 import connectDB from './services/db';
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' ? 'https://your-frontend-app.herokuapp.com' : 'http://localhost:3000',
   credentials: true
-}));app.use(express.json());
+}));
 app.use(express.urlencoded({ extended: true }))
 
 
