@@ -26,6 +26,10 @@ connectDB();
 // Use the authRoutes for requests starting with /auth
 app.use('/auth', authRoutes); // Mount the authRoutes at /auth
 
+app.get('/', (req: Request, res: Response) => {
+  res.send('API is working!');
+});
+
 // Global error handler
 app.use((err: any, req: Request, res: Response, next: any) => {
   console.error(err);
