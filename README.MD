@@ -9,7 +9,7 @@ The system allows:
 - JWT-based authentication
 - Secure password handling with `bcryptjs`
 - MongoDB Atlas for remote DB connectivity
-- Organized modular folder structure (auth, models, services, helpers)
+- Organized modular folder structure (auth, types, services, helpers)
 
 ---
 
@@ -30,7 +30,7 @@ The system allows:
 TypeScript offers:
 - Strong type-checking and reduced runtime errors
 - Better autocompletion and refactoring in IDEs
-- Clear interfaces (like `IUser`) for models and APIs
+- Clear interfaces (like `IUser`) for types and APIs
 - Confidence in team scaling and production deployments
 
 ---
@@ -56,7 +56,7 @@ src/
 │ ├── authUtils.ts # Password hashing & comparison logic
 │ └── token.ts # Encode/decode JWT logic
 │
-├── models/
+├── types/
 │ └── user.ts # Mongoose schema for User
 │
 ├── services/
@@ -69,7 +69,7 @@ src/
 
 ## Project Flow
 
-1. **User Signup/Login**
+1. **User Login**
    - Routes are defined under `auth/authRoute.ts`
    - Password is hashed using `bcryptjs` before saving to DB (`authUtils.ts`)
    - JWT is generated using `encodeAuthToken()` from `token.ts`
@@ -82,7 +82,7 @@ src/
    - `services/db.ts` connects to MongoDB Atlas using `MONGO_URI` from `.env`
 
 4. **User Model**
-   - Defined in `models/user.ts`
+   - Defined in `types/user.ts`
    - Password is automatically hashed using Mongoose pre-save hook
    - Includes method `comparePassword()` for validating login attempts
 
