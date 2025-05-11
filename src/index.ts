@@ -11,8 +11,6 @@ const app = express();
 
 app.use(cors({ origin: true, credentials: true }));
 
-
-
 import authRoutes from './auth/authRoute';
 
 dotenv.config({
