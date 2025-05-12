@@ -21,7 +21,7 @@ const middleware_1 = require("./middleware");
 const router = express_1.default.Router();
 router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { username, password, userId } = req.body;
+        const { username, password } = req.body;
         // Finding user by username since it is unique
         const user = yield user_1.default.findOne({ username });
         console.log("user" + user);

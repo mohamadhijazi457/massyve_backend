@@ -8,17 +8,17 @@ const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const db_1 = __importDefault(require("./services/db"));
 const app = (0, express_1.default)();
-// app.use(cors({
-//   origin: process.env.NODE_ENV === 'production' ? 'https://your-frontend-app.herokuapp.com' : 'http://localhost:3000',
-//   credentials: true
-// }));
-// app.use(express.urlencoded({ extended: true }))
-app.use((0, cors_1.default)({ origin: true, credentials: true }));
+app.use((0, cors_1.default)({
+    origin: 'https://massyve-frontend-roan.vercel.app',
+    credentials: true
+}));
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
 const authRoute_1 = __importDefault(require("./auth/authRoute"));
 dotenv_1.default.config({
     path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development',
 });
-const port = parseInt(process.env.PORT, 10); // Type assertion for safe conversion
+const port = process.env.PORT || 3000; // Heroku sets the PORT variable automatically
 // MongoDB Connection
 (0, db_1.default)();
 // Use the authRoutes for requests starting with /auth

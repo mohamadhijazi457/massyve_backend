@@ -17,7 +17,6 @@ interface LoginInfo {
 interface RequestBody {
   username: string;
   password: string;
-  userId: number;
 }
 
 router.post('/login',
