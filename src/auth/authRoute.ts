@@ -24,7 +24,7 @@ router.post('/login',
     async (req: Request<{}, {}, RequestBody>, res: Response) => {
       
     try {      
-      const { username, password, userId } = req.body;
+      const { username, password } = req.body;
   
       // Finding user by username since it is unique
       

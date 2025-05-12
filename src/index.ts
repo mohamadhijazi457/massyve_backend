@@ -3,19 +3,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './services/db';
 const app = express();
-const allowedOrigins = ['http://localhost:3000', 'https://massyve-frontend-roan.vercel.app'];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'https://massyve-frontend-roan.vercel.app',
   credentials: true
-}));
-app.use(express.json());
+}));app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 
