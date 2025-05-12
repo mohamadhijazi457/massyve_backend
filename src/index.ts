@@ -16,7 +16,7 @@ dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.development',
 });
 
-const port: number = parseInt(process.env.PORT as string, 10); // Type assertion for safe conversion
+const port = process.env.PORT || 3000;  // Heroku sets the PORT variable automatically
 
 
 // MongoDB Connection
